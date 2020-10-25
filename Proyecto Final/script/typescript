@@ -1,0 +1,23 @@
+Script started on 2020-10-25 18:46:25-03:00 [TERM="xterm-256color" TTY="/dev/pts/1" COLUMNS="118" LINES="12"]
+]0;matias@matias-MS-7788: ~/Estudio de Progración/Curso JS/CursoJavaScript/Proyecto Final/script[01;32mmatias@matias-MS-7788[00m:[01;34m~/Estudio de Progración/Curso JS/CursoJavaScript/Proyecto Final/script[00m$ git commit -m "Primer versión programa que saca presupuestos de mensura.-"[A]0;matias@matias-MS-7788: ~/Estudio de Progración/Curso JS/CursoJavaScript/Proyecto Final/script[01;32mmatias@matias-MS-7788[00m:[01;34m~/Estudio de Progración/Curso JS/CursoJavaScript/Proyecto Final/script[00m$ [C[C[C[Cadd .[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccommit -m "Primer versión programa que saca presupuestos de mensura.-"[A]0;matias@matias-MS-7788: ~/Estudio de Progración/Curso JS/CursoJavaScript/Proyecto Final/script[01;32mmatias@matias-MS-7788[00m:[01;34m~/Estudio de Progración/Curso JS/CursoJavaScript/Proyecto Final/script[00m$ [K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cgit commit -m "Primer versión programa que saca presupuestos de mensura.-"[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kscript.js
+script.js: orden no encontrada
+]0;matias@matias-MS-7788: ~/Estudio de Progración/Curso JS/CursoJavaScript/Proyecto Final/script[01;32mmatias@matias-MS-7788[00m:[01;34m~/Estudio de Progración/Curso JS/CursoJavaScript/Proyecto Final/script[00m$ [K]0;matias@matias-MS-7788: ~/Estudio de Progración/Curso JS/CursoJavaScript/Proyecto Final/script[01;32mmatias@matias-MS-7788[00m:[01;34m~/Estudio de Progración/Curso JS/CursoJavaScript/Proyecto Final/script[00m$ git status
+En la rama master
+Tu rama está adelantada a 'origin/master' por 1 commit.
+  (usa "git push" para publicar tus commits locales)
+
+Cambios no rastreados para el commit:
+  (usa "git add <archivo>..." para actualizar lo que será confirmado)
+  (usa "git restore <archivo>..." para descartar los cambios en el directorio de trabajo)
+	[31mmodificado:     script.js[m
+
+Archivos sin seguimiento:
+  (usa "git add <archivo>..." para incluirlo a lo que se será confirmado)
+	[31mtypescript[m
+
+sin cambios agregados al commit (usa "git add" y/o "git commit -a")
+]0;matias@matias-MS-7788: ~/Estudio de Progración/Curso JS/CursoJavaScript/Proyecto Final/script[01;32mmatias@matias-MS-7788[00m:[01;34m~/Estudio de Progración/Curso JS/CursoJavaScript/Proyecto Final/script[00m$ git add .
+]0;matias@matias-MS-7788: ~/Estudio de Progración/Curso JS/CursoJavaScript/Proyecto Final/script[01;32mmatias@matias-MS-7788[00m:[01;34m~/Estudio
