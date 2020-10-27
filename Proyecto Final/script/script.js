@@ -1,4 +1,3 @@
-'use strict';
 
 function laborProfesional(tipo, superficie, vertices, irrigado) {
     this.tipo = tipo;
@@ -62,24 +61,24 @@ function honorarioUrbano(superficie){
     var listaSuperficies = [0, 300, 500, 700, 1000, 1200, 1500, 2000, 5000, 10000];
     var honorarios = [8400, 11300, 14100, 15500, 18400, 21200, 24000, 29700, 43800];
     for(var i = 0; i < listaSuperficies.length; i++){
-        j = i++;
+        var j = i++;
         if(superficie < listaSuperficies[j]){
             var honorario = honorarios[i];
+            break;
+        }else if(superficie == listaSuperficies[9]){
+          var honorario = honorarios[8];
         }
     }
     return honorario;
 }
 
 
-
 var tipo = determinarLaborProfesional();
 var datos = datosParcelariosLaborEncargada(tipo);
 var mensura = new laborProfesional(datos[0], datos[1], datos[2], datos[3]);
+var honorario = honorarioUrbano(mensura.superficie);
 
-var honorario = honorarioUrbano(450);
-
-console.log(honorario);
-
+alert(honorario);
 
 
 
