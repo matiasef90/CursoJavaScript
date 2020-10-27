@@ -9,7 +9,7 @@ function laborProfesional(tipo, superficie, vertices, irrigado) {
 
 function determinarLaborProfesional(){
     do{
-        window.alert("Las opciones permitidas son: Urbano, Rural, Secano, Certificacion de Riego.-");
+        alert("Las opciones permitidas son: Urbano, Rural, Secano, Certificacion de Riego.-");
         var tipo = prompt(  "Ingrese Labor Profesional:");
     }while(tipo != "Urbano" && tipo !="Rural" && tipo !="Secano" && tipo !="Certificacion de Riego") 
 
@@ -58,15 +58,27 @@ function datosParcelariosLaborEncargada(tipo){
 
 }
 
+function honorarioUrbano(superficie){
+    var listaSuperficies = [0, 300, 500, 700, 1000, 1200, 1500, 2000, 5000, 10000];
+    var honorarios = [8400, 11300, 14100, 15500, 18400, 21200, 24000, 29700, 43800];
+    for(var i = 0; i < listaSuperficies.length; i++){
+        j = i++;
+        if(superficie < listaSuperficies[j]){
+            var honorario = honorarios[i];
+        }
+    }
+    return honorario;
+}
+
 
 
 var tipo = determinarLaborProfesional();
 var datos = datosParcelariosLaborEncargada(tipo);
 var mensura = new laborProfesional(datos[0], datos[1], datos[2], datos[3]);
 
+var honorario = honorarioUrbano(450);
 
-console.log(mensura.irrigado);
-
+console.log(honorario);
 
 
 
