@@ -67,11 +67,21 @@ function honorarioUrbano(superficie) {
             break;
         } else if (superficie == listaSuperficies[9]) {
             var honorario = honorarios[8];
+            break;
         }
     }
     return honorario;
 }
 
+function honorarioSuperficie(superficie, listaSuperficies, listaHonorarios){
+    for (var i = 0; i < listaSuperficies.length; i++){
+        if(superficie < listaSuperficies[i]){
+            var honorario = listaHonorarios[i];
+            break;
+        }
+    }
+    return honorario;
+}
 
 function honorarioRuralSecano(superficie, vertices, irrigado) {
     var listaSuperficies = [1001, 3001, 10001, 100001, 200001, 500001, 1000001, 5000001,10000001, 50000001, 100000001, 500000001, 1000000001];
@@ -81,6 +91,8 @@ function honorarioRuralSecano(superficie, vertices, irrigado) {
     var complementoVertice = [480, 560, 705, 850, 1100, 1550, 1800, 2400, 2800, 3200, 3800, 4200, 4200, 4200, 4200];
     var honorario;
     honorario = 4800 ? irrigado : 0;
+    honorario = honorario + honorarioSuperficie(superficie, listaSuperficies, honorarioBase);
+    
 }
 
 
