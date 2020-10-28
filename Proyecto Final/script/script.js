@@ -1,107 +1,117 @@
 
-function laborProfesional(tipo, superficie, vertices, irrigado) {
+/*Tomas los datos ingresados por el usuario y genera un objeto Mensura*/
+
+function LaborProfesional(tipo, superficie, vertices, irrigado) {
     this.tipo = tipo;
     this.superficie = superficie;
     this.vertices = vertices;
     this.irrigado = irrigado;
-}
-
-function determinarLaborProfesional() {
-    do {
-        alert("Las opciones permitidas son: Urbano, Rural, Secano, Certificacion de Riego.-");
-        var tipo = prompt("Ingrese Labor Profesional:");
-    } while (tipo != "Urbano" && tipo != "Rural" && tipo != "Secano" && tipo != "Certificacion de Riego")
-
-    return tipo;
-}
-
-function determinarSuperficie(tipo) {
-    if (tipo == 'Rural' || tipo == 'Urbano' || tipo == 'Secano') {
-        do {
-            var superficie = prompt("Ingrese Superficie del Inmueble: ");
-        } while (isNaN(superficie));
-    }
-    return superficie;
-}
-
-function cantidadDeVertices(tipo) {
-    if (tipo == 'Rural' || tipo == 'Secano') {
-        do {
-            var vertices = prompt("Ingrese cantidad de vertices de la propiedad: ");
-        } while (Number.isInteger(vertices));
-        return vertices;
-    } else {
-        return vertices = 4;
+    this.honorario = [];
+    this.agregarHonorarioParcial = function (lista, valor) {
+        return lista.push(valor);
     }
 }
 
-function determinarIrrigado(tipo) {
-    return true ? tipo == 'Certificacion de Riego' : false;
+/*Crea objetos con las variables necesarias para el calculo de los honorarios*/
+
+function VariablesGeneralesPresupuesto(superficies, honorarios, vertices, valorVertices, superficieExcedente, valorSuperficieExcedente, certificacionRiego) {
+    this.superficies = superficies;
+    this.honorarios = honorarios;
+    this.vertices = vertices;
+    this.valorVertices = valorVertices;
+    this.superficieExcedente = superficieExcedente;
+    this.valorSuperficieExcedente = valorSuperficieExcedente;
+    this.certificacionRiego = certificacionRiego;
 }
 
+/*Tomas parametros ingresados por prompt*/
 
+function CapturaDeParametrosMensura() {
+    this.determinarLaborProfesional = function () {
+        do {
+            alert("Las opciones permitidas son: Urbano, Rural, Secano, Certificacion de Riego.-");
+            var tipo = prompt("Ingrese Labor Profesional:");
+        } while (tipo != "Urbano" && tipo != "Rural" && tipo != "Secano" && tipo != "Certificacion de Riego")
 
-function datosParcelariosLaborEncargada(tipo) {
+        return tipo;
+    }
 
-    var datos = [];
+    this.determinarSuperficie = function (tipo) {
+        if (tipo == 'Rural' || tipo == 'Urbano' || tipo == 'Secano') {
+            do {
+                var superficie = prompt("Ingrese Superficie del Inmueble: ");
+            } while (isNaN(superficie));
+        }
+        return superficie;
+    }
 
-    datos.push(tipo);
-
-    datos.push(determinarSuperficie(tipo));
-
-    datos.push(cantidadDeVertices(tipo));
-
-    datos.push(determinarIrrigado(tipo));
-
-    return datos;
-
-}
-
-function honorarioUrbano(superficie) {
-    var listaSuperficies = [0, 300, 500, 700, 1000, 1200, 1500, 2000, 5000, 10000];
-    var honorarios = [8400, 11300, 14100, 15500, 18400, 21200, 24000, 29700, 43800];
-    for (var i = 0; i < listaSuperficies.length; i++) {
-        var j = i++;
-        if (superficie < listaSuperficies[j]) {
-            var honorario = honorarios[i];
-            break;
-        } else if (superficie == listaSuperficies[9]) {
-            var honorario = honorarios[8];
-            break;
+    this.cantidadDeVertices = function (tipo) {
+        if (tipo == 'Rural' || tipo == 'Secano') {
+            do {
+                var vertices = prompt("Ingrese cantidad de vertices de la propiedad: ");
+            } while (Number.isInteger(vertices));
+            return vertices;
+        } else {
+            return vertices = 4;
         }
     }
-    return honorario;
-}
 
-function honorarioSuperficie(superficie, listaSuperficies, listaHonorarios){
-    for (var i = 0; i < listaSuperficies.length; i++){
-        if(superficie < listaSuperficies[i]){
-            var honorario = listaHonorarios[i];
-            break;
-        }
+    this.determinarIrrigado = function (tipo) {
+        return true ? tipo == 'Certificacion de Riego' || 'Rural' : false;
     }
-    return honorario;
 }
 
-function honorarioRuralSecano(superficie, vertices, irrigado) {
-    var listaSuperficies = [1001, 3001, 10001, 100001, 200001, 500001, 1000001, 5000001,10000001, 50000001, 100000001, 500000001, 1000000001];
-    var honorarioBase = [8500, 8500, 11300, 12400, 14100, 22600, 29600, 43700, 62000, 100200, 124000, 296000, 486600, 1875000];
-    var complementoSuperficie = [0, 141, 37, 42, 846, 705, 479, 352, 84, 47, 42, 38, 34, 31, 22];
-    var cantidadVertices = [4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 7, 40, 90, 140];
-    var complementoVertice = [480, 560, 705, 850, 1100, 1550, 1800, 2400, 2800, 3200, 3800, 4200, 4200, 4200, 4200];
-    var honorario;
-    honorario = 4800 ? irrigado : 0;
-    honorario = honorario + honorarioSuperficie(superficie, listaSuperficies, honorarioBase);
-    
+/*Calcula las distintas componentes de los honorarios*/
+
+function MetodosCalculoHonorarios() {
+
+    this.honorarioSuperficie = function (superficie, listaSuperficies, listaHonorarios) {
+        var ultimoIndice = listaSuperficies.length - 1;
+        if (superficie > listaSuperficies[ultimoIndice]) {
+            var honorario = listaHonorarios[ultimoIndice];
+        } else {
+            for (var i = 0; i < listaSuperficies.length; i++) {
+                if (superficie < listaSuperficies[i]) {
+                    var honorario = listaHonorarios[i];
+                    break;
+                }
+            }
+        }
+        return honorario;
+    }
+
+    this.honorioRiego = function (honorario, irrigado) {
+        return honorario ? irrigado : 0;
+    }
+
+    /*Faltan métodos que permitan calculas los honorarios por cantidad de vertices y
+    por exceso de superficie.-*/
+
 }
 
+var variablesUrbano = new VariablesGeneralesPresupuesto();
+variablesUrbano.listaSuperficies = [301, 501, 701, 1001, 1201, 1501, 2001, 5001, 10001];
+variablesUrbano.listaHonorarios = [8400, 11300, 14100, 15500, 18400, 21200, 24000, 29700, 43800];
 
-var tipo = determinarLaborProfesional();
-var datos = datosParcelariosLaborEncargada(tipo);
-var mensura = new laborProfesional(datos[0], datos[1], datos[2], datos[3]);
-var honorario = honorarioUrbano(mensura.superficie);
+var variablesRural = new VariablesGeneralesPresupuesto();
+variablesRural.listaSuperficies = [1001, 3001, 6001, 10001, 100001, 200001, 500001, 1000001, 5000001, 10000001, 50000001, 100000001, 50000001, 1000000001];
+variablesRural.listaHonorarios = [8400, 8400, 11300, 12400, 14100, 22500, 29600, 43700, 62100, 10200, 12500, 296000, 486600, 1875000, 3470000];
+variablesRural.certificacionRiego = 5000;
 
-alert(honorario);
+var calculo = new MetodosCalculoHonorarios();
+//var mensura = new LaborProfesional();
+//mensura.tipo = CapturaDeParametrosMensura.determinarLaborProfesional();
+//mensura.superficie = CapturaDeParametrosMensura.determinarSuperficie(mensura.tipo);
+//mensura.irrigado = CapturaDeParametrosMensura.determinarIrrigado(mensura.tipo);
+
+
+console.log(calculo.honorarioSuperficie(500, [100, 300, 700, 1000], [1,2,3,4]));
+
+
+
+
+
+
 
 
 
