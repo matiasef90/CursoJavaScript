@@ -3,11 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <script src="./script/script.js"></script>
+    
     <title>Calculo Honorarios CAM</title>
 </head>
 <body>
-    <h1>Calculo Honorarios Sugeridos CAM</h1>
+    <header>
+        <h1>Calculo Honorarios Sugeridos CAM</h1>
+</header>
+<form action="" method="GET">
+    <p>Selecciona el Tipo de Mensura a Realizar</p>
+    
+    <input type="radio" id="urbano" name="tipoMensura" value="urbano">
+    <label for="urbano">Urbano</label>
+    
+    <input type="radio" id="rural" name="tipoMensura" value="rural">
+    <label for="rural">Rural</label>
+    
+    <input type="radio" id="secano" name="tipoMensura" value="secano">
+    <label for="secano">Secano</label>
+    
+    <input type="radio" id="certificacion" name="tipoMensura" value="certificacion">
+    <label for="certificacion">Certificación de Riego</label>
+
+    <input type="submit" value="Siguiente">
+</form>
+
+
+<footer>
+        <p>
+            Matías Fernandez Desarrollo Web &copy; Todos los derechos Reservados
+        </p>
+    </footer>
+
+
     
 </body>
 </html>

@@ -34,13 +34,14 @@ function CapturaDeParametrosMensura() {
         do {
             alert("Las opciones permitidas son: Urbano, Rural, Secano, Certificacion de Riego.-");
             var tipo = prompt("Ingrese Labor Profesional:");
-        } while (tipo != "Urbano" && tipo != "Rural" && tipo != "Secano" && tipo != "Certificacion de Riego")
+            tipo.toLowerCase();
+        } while (tipo != "urbano" && tipo != "rural" && tipo != "secano" && tipo != "certificacion de riego")
 
         return tipo;
     }
 
     this.determinarSuperficie = function (tipo) {
-        if (tipo == 'Rural' || tipo == 'Urbano' || tipo == 'Secano') {
+        if (tipo == 'rural' || tipo == 'urbano' || tipo == 'secano') {
             do {
                 var superficie = prompt("Ingrese Superficie del Inmueble: ");
             } while (isNaN(superficie));
@@ -49,7 +50,7 @@ function CapturaDeParametrosMensura() {
     }
 
     this.cantidadDeVertices = function (tipo) {
-        if (tipo == 'Rural' || tipo == 'Secano') {
+        if (tipo == 'rural' || tipo == 'secano') {
             do {
                 var vertices = prompt("Ingrese cantidad de vertices de la propiedad: ");
             } while (Number.isInteger(vertices));
@@ -60,11 +61,11 @@ function CapturaDeParametrosMensura() {
     }
 
     this.determinarIrrigado = function (tipo) {
-        return (tipo == 'Certificacion de Riego' || tipo == 'Rural') ? true : false;
+        return (tipo == 'certificacion de Riego' || tipo == 'rural') ? true : false;
     }
 
     this.listaHonorariosQueUtilizamos = function (tipo, listaHonorariosUrbano, listaHonorariosRuralSecano) {
-        if (tipo == 'Urbano') {
+        if (tipo == 'urbano') {
             return listaHonorariosUrbano;
         } else {
             return listaHonorariosRuralSecano;
@@ -72,7 +73,7 @@ function CapturaDeParametrosMensura() {
     }
 
     this.listaSuperficiesQueUtilizamos = function (tipo, listaSuperficiesUrbano, listaSuperficiesRuralSecano) {
-        if (tipo == 'Urbano') {
+        if (tipo == 'urbano') {
             return listaSuperficiesUrbano;
         } else {
             return listaSuperficiesRuralSecano;
@@ -137,6 +138,8 @@ var metodosCalculoHonorarios = new MetodosCalculoHonorarios();
 var capturaParametrosMensura = new CapturaDeParametrosMensura();
 
 var mensura = new LaborProfesional();
+
+/**
 
 mensura.tipo = capturaParametrosMensura.determinarLaborProfesional();
 mensura.superficie = capturaParametrosMensura.determinarSuperficie(mensura.tipo);
