@@ -1,17 +1,18 @@
 window.onload = function () {
     recibirDatos();
-    console.log(evaluarImc(30));
-
 }
 
 function recibirDatos() {
+    
     var altura = document.getElementById('altura').value;
     var peso = document.getElementById('peso').value;
     var imc = calcularIndiceMasaCorporal(altura, peso);
     var informePeso = evaluarImc(imc);
-    escribirEnHtml('titulo', "Composicion Corporal");
-    escribirEnHtml('IMC', "Tu indice de masa corporal es: ", imc);
-    escribirEnHtml('estadoFisico', informePeso)
+    if(altura != '' && peso !=''){
+        escribirEnHtml('titulo', "Composicion Corporal");
+        escribirEnHtml('IMC', "Tu indice de masa corporal es: ", imc);
+        escribirEnHtml('estadoFisico', informePeso)
+    }
     
 
 }
