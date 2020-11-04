@@ -20,7 +20,9 @@ function recibirDatos() {
 function calcularIndiceMasaCorporal(altura, peso) {
     var indiceMasaCorporal;
     var alturaAlCuadrado = altura * altura;
-    return indiceMasaCorporal = peso / alturaAlCuadrado;
+    var indiceMasaCorporal = peso / alturaAlCuadrado;
+    var indiceMasaCorporal = indiceMasaCorporal.toFixed(1);
+    return indiceMasaCorporal;
 }
 
 function evaluarImc(imc) {
