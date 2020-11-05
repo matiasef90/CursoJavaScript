@@ -1,3 +1,9 @@
+window.onload = function(){
+    parametros();
+}
+
+
+
 
 /*Tomas los datos ingresados por el usuario y genera un objeto Mensura*/
 
@@ -30,6 +36,11 @@ function VariablesGeneralesPresupuesto(superficies, honorarios, vertices, valorV
 /*Tomas parametros ingresados por prompt*/
 
 function CapturaDeParametrosMensura() {
+
+    this.seleccionarID = function(id){
+        document.getElementById(id);
+    }
+
     this.determinarLaborProfesional = function () {
         do {
             alert("Las opciones permitidas son: Urbano, Rural, Secano, Certificacion de Riego.-");
@@ -133,11 +144,18 @@ variablesRural.listaSuperficies = [1001, 3001, 6001, 10001, 100001, 200001, 5000
 variablesRural.listaHonorarios = [8400, 8400, 11300, 12400, 14100, 22500, 29600, 43700, 62100, 10200, 12500, 296000, 486600, 1875000, 3470000];
 variablesRural.certificacionRiego = 5000;
 
-var metodosCalculoHonorarios = new MetodosCalculoHonorarios();
+var CalculoHonorarios = new MetodosCalculoHonorarios();
 
-var capturaParametrosMensura = new CapturaDeParametrosMensura();
+var tomarParametros = new CapturarParametrosMensura();
 
 var mensura = new LaborProfesional();
+
+
+
+function parametros(){
+    mensura.tipo = tomarParametros.seleccionarID('tipoMensura').options[seleccionarID('tipoMensura').selectedIndex].text;
+    document.getElementById(mensura).innerHTML(mensura.tipo);
+}
 
 
 /*
@@ -149,17 +167,3 @@ mensura.listaHonorariosTabla = capturaParametrosMensura.listaHonorariosQueUtiliz
 mensura.agregarHonorarioParcial(mensura.honorariosParciales, metodosCalculoHonorarios.honorarioSuperficie(mensura.superficie, mensura.listaSuperficiesTabla, mensura.listaHonorariosTabla, mensura.tipo));
 mensura.agregarHonorarioParcial(mensura.honorariosParciales, metodosCalculoHonorarios.honorarioRiego(variablesRural.certificacionRiego, mensura.irrigado));
 mensura.honorarioTotal = metodosCalculoHonorarios.honorarioTotal(mensura.honorariosParciales);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
