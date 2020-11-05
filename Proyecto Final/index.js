@@ -34,7 +34,7 @@ function CapturaDeParametrosMensura() {
         do {
             alert("Las opciones permitidas son: Urbano, Rural, Secano, Certificacion de Riego.-");
             var tipo = prompt("Ingrese Labor Profesional:");
-            tipo.toLowerCase();
+            tipo = tipo.toLowerCase();
         } while (tipo != "urbano" && tipo != "rural" && tipo != "secano" && tipo != "certificacion de riego")
 
         return tipo;
@@ -61,7 +61,7 @@ function CapturaDeParametrosMensura() {
     }
 
     this.determinarIrrigado = function (tipo) {
-        return (tipo == 'certificacion de Riego' || tipo == 'rural') ? true : false;
+        return (tipo == 'certificacion de riego' || tipo == 'rural') ? true : false;
     }
 
     this.listaHonorariosQueUtilizamos = function (tipo, listaHonorariosUrbano, listaHonorariosRuralSecano) {
@@ -87,7 +87,7 @@ function CapturaDeParametrosMensura() {
 function MetodosCalculoHonorarios() {
 
     this.honorarioSuperficie = function (superficie, listaSuperficies, listaHonorarios, tipo) {
-        if(tipo == 'Certificacion de Riego'){
+        if(tipo == 'certificacion de riego'){
             return 0;
         }
         var ultimoIndice = listaSuperficies.length - 1;
@@ -139,8 +139,8 @@ var capturaParametrosMensura = new CapturaDeParametrosMensura();
 
 var mensura = new LaborProfesional();
 
-/**
 
+/*
 mensura.tipo = capturaParametrosMensura.determinarLaborProfesional();
 mensura.superficie = capturaParametrosMensura.determinarSuperficie(mensura.tipo);
 mensura.irrigado = capturaParametrosMensura.determinarIrrigado(mensura.tipo);
@@ -150,8 +150,6 @@ mensura.agregarHonorarioParcial(mensura.honorariosParciales, metodosCalculoHonor
 mensura.agregarHonorarioParcial(mensura.honorariosParciales, metodosCalculoHonorarios.honorarioRiego(variablesRural.certificacionRiego, mensura.irrigado));
 mensura.honorarioTotal = metodosCalculoHonorarios.honorarioTotal(mensura.honorariosParciales);
 
-alert(mensura.honorariosParciales);
-alert(mensura.honorarioTotal);
 
 
 

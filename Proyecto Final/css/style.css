@@ -1,0 +1,58 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  font-size: 10px; }
+
+.header {
+  height: 150px; }
+
+.contenedor {
+  margin: 0px auto;
+  width: 90%;
+  height: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly; }
+
+.contenedor--header {
+  flex-flow: column wrap;
+  align-content: center; }
+
+.contenedor__titulo {
+  font-size: 4rem;
+  color: white;
+  align-self: center;
+  margin: 0px auto; }
+
+.header {
+  background-color: black; }
+
+.card {
+  background-color: blue;
+  margin-top: 3rem;
+  transition: 500ms; }
+
+.card__titulo {
+  display: block;
+  padding: 3rem;
+  font-size: 2rem;
+  color: burlywood; }
+
+.card:hover {
+  border-radius: 1.5rem; }
+
+.footer {
+  font-size: 1.6rem;
+  background-color: black;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  color: white; }
+
+.footer__texto {
+  text-align: center;
+  font-size: 1.6rem;
+  padding: 1rem; }
+
+/*# sourceMappingURL=style.css.map */

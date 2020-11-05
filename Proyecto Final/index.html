@@ -1,43 +1,65 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <script src="./script/script.js"></script>
-    
+    <link rel="stylesheet" href="./css/style.css">
+
+    <script src="./index.js"></script>
+
     <title>Calculo Honorarios CAM</title>
 </head>
+
 <body>
-    <header>
-        <h1>Calculo Honorarios Sugeridos CAM</h1>
-</header>
-<form action="" method="GET">
-    <p>Selecciona el Tipo de Mensura a Realizar</p>
-    
-    <input type="radio" id="urbano" name="tipoMensura" value="urbano">
-    <label for="urbano">Urbano</label>
-    
-    <input type="radio" id="rural" name="tipoMensura" value="rural">
-    <label for="rural">Rural</label>
-    
-    <input type="radio" id="secano" name="tipoMensura" value="secano">
-    <label for="secano">Secano</label>
-    
-    <input type="radio" id="certificacion" name="tipoMensura" value="certificacion">
-    <label for="certificacion">Certificación de Riego</label>
-
-    <input type="submit" value="Siguiente">
-</form>
+    <header class="header">
+        <div class="contenedor contenedor--header">
+            <h1 class="contenedor__titulo">Calculo Honorarios Sugeridos CAM</h1>
+        </div>
+    </header>
 
 
-<footer>
-        <p>
-            Matías Fernandez Desarrollo Web &copy; Todos los derechos Reservados
-        </p>
+    <main class="principal">
+
+        <!--BOTONES PARA SELECCCIONAR LA MENSURA A REALIZAR-->
+        <div class="contenedor">
+            <div class="card">
+                <h2 class="card__titulo" id="urbano">Urbano</h2>
+            </div>
+            <div class="card">
+                <h2 class="card__titulo" id="rural">Rural</h2>
+            </div>
+            <div class="card">
+                <h2 class="card__titulo" id="secano">Secano</h2>
+            </div>
+            <div class="card">
+                <h2 class="card__titulo" id="certificacion">Certificación de Riego</h2>
+            </div>
+        </div>
+
+        <!--FORMULARIOS A LLENAR SEGUN EL TIPO DE MENSURA A REALIZAR-->
+        <div class="contenedor">
+            <form>
+                <label for="superficie">Ingrese la Superficie del Inmueble</label>
+                <input type="text">
+                <button>Enviar</button>
+            </form>
+            <h3 id='presupuesto'></h3>
+        </div>
+
+
+    </main>
+
+
+
+    <footer class="footer">
+            <p class="footer__texto">
+                Matías Fernandez Desarrollo Web &copy; Todos los derechos Reservados
+            </p>
     </footer>
 
 
-    
+
 </body>
+
 </html>
