@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,800;1,500&display=swap" rel="stylesheet"> 
+
 
     <script src="./index.js"></script>
 
@@ -22,17 +24,27 @@
     <main class="principal">
 
         <!--BOTONES PARA SELECCCIONAR LA MENSURA A REALIZAR-->
-        <dic class="contenedor">
+        <div class="contenedor contenedor__datos">
             <form class="formulario">
-                <label class="formulario__etiqueta">Ingresa tipo de Labor Profesional a Realizar</label><br>
-                <select id="selectorMensura" class="formulario__selector" onchange="parametros()">
+                <label class="formulario__item">Ingresa tipo de Labor Profesional a Realizar</label>
+                <select id="selectorMensura" class="formulario__input" onchange="parametros()">
                     <option value="urbano">Urbano</option>
                     <option value="rural">Rural</option>
                     <option value="secano">Secano</option>
                     <option value="certificacion de riego">Certificación de Riego</option>
-                </select><br>
+                </select>
+                <label for="superficie" class="formulario__item">Ingrese la Superficie del Inmueble</label>
+                <input type='number' class="formulario__input">
+                <label for="vertices" class="formulario__item">Ingrese la cantidad de vertices</label>
+                <input type='number' class="formulario__input">
+                <label for="superficie" class="formulario__item">Indique si la propiedad cuanta con derecho de riego</label>
+                <input type='number' class="formulario__input">
+                <input type="submit" class="formulario__item formulario__item--enviar" value="Presupuestar">
             </form>
-            <h2 id="mensura"></h2>
+        </div>
+        <div class="contenedor contenedor__presupuesto">
+
+
         </div>
 
         <!--FORMULARIOS A LLENAR SEGUN EL TIPO DE MENSURA A REALIZAR-->
@@ -51,9 +63,9 @@
 
 
     <footer class="footer">
-            <p class="footer__texto">
-                Matías Fernandez Desarrollo Web &copy; Todos los derechos Reservados
-            </p>
+        <div class="contenedor">
+            <p>Matías Fernandez Desarrollo Web &copy; Todos los derechos Reservados</p>
+        </div>
     </footer>
 
 
