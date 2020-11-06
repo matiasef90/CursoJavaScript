@@ -22,17 +22,18 @@
     <main class="principal">
 
         <!--BOTONES PARA SELECCCIONAR LA MENSURA A REALIZAR-->
-        <form>
-            <label>Ingresa tipo de Labor Profesional a Realizar</label><br>
-            <select id="tipoMensura">
-                <option value="urbano">Urbano</option>
-                <option value="rural">Rural</option>
-                <option value="secano">Secano</option>
-                <option value="certificacion de riego">Certificación de Riego</option>
-            </select><br>
-            <button onclick="parametros()">Continuar</button>
-        </form>
-        <h2 id="mensura"></h2>
+        <dic class="contenedor">
+            <form class="formulario">
+                <label class="formulario__etiqueta">Ingresa tipo de Labor Profesional a Realizar</label><br>
+                <select id="selectorMensura" class="formulario__selector" onchange="parametros()">
+                    <option value="urbano">Urbano</option>
+                    <option value="rural">Rural</option>
+                    <option value="secano">Secano</option>
+                    <option value="certificacion de riego">Certificación de Riego</option>
+                </select><br>
+            </form>
+            <h2 id="mensura"></h2>
+        </div>
 
         <!--FORMULARIOS A LLENAR SEGUN EL TIPO DE MENSURA A REALIZAR-->
         <div class="contenedor">
