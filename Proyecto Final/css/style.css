@@ -29,19 +29,50 @@
 
 .formulario {
   width: 60%;
-  height: 400px;
-  display: flexbox;
+  height: auto;
+  display: flex;
   flex-flow: column wrap; }
 
 .formulario__item {
-  width: 100%;
   font-family: 'Poppins';
-  font-weight: 500;
   border-radius: .2rem;
   color: #16a596;
   font-size: 2rem;
   margin-top: 1rem;
   margin-bottom: 1rem; }
+
+.formulario__input {
+  width: 50%;
+  font-family: 'Poppins';
+  color: #fae0df;
+  background-color: #898b8a;
+  font-size: 1.6rem; }
+
+.formulario__item--enviar {
+  display: block;
+  width: max-content;
+  padding: 1rem;
+  align-self: flex-start;
+  background-color: #898b8a;
+  color: #fae0df;
+  transition: 500ms; }
+
+.formulario__item--enviar:hover, .formulario__input:hover {
+  background-color: #16a596;
+  color: #fae0df; }
+
+.contenedor__presupuesto {
+  display: flex;
+  flex-flow: column;
+  width: 50%; }
+  .contenedor__presupuesto h1 {
+    color: #16a596;
+    font-size: 2.5rem;
+    font-family: 'Poppins'; }
+  .contenedor__presupuesto p {
+    color: #16a596;
+    font-size: 2.5rem;
+    font-family: 'Poppins'; }
 
 .footer {
   font-size: 1.6rem;

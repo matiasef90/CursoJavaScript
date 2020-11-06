@@ -28,35 +28,32 @@
             <form class="formulario">
                 <label class="formulario__item">Ingresa tipo de Labor Profesional a Realizar</label>
                 <select id="selectorMensura" class="formulario__input" onchange="parametros()">
-                    <option value="urbano">Urbano</option>
-                    <option value="rural">Rural</option>
-                    <option value="secano">Secano</option>
-                    <option value="certificacion de riego">Certificación de Riego</option>
+                    <option class="formulario__input" value="urbano">Urbano</option>
+                    <option class="formulario__input" value="rural">Rural</option>
+                    <option class="formulario__input" value="secano">Secano</option>
+                    <option class="formulario__input" value="certificacion de riego">Certificación de Riego</option>
                 </select>
                 <label for="superficie" class="formulario__item">Ingrese la Superficie del Inmueble</label>
                 <input type='number' class="formulario__input">
                 <label for="vertices" class="formulario__item">Ingrese la cantidad de vertices</label>
                 <input type='number' class="formulario__input">
-                <label for="superficie" class="formulario__item">Indique si la propiedad cuanta con derecho de riego</label>
-                <input type='number' class="formulario__input">
+                <label for="riego" class="formulario__item">Indique si la propiedad cuanta con derecho de riego</label>
+                <select name="riego" id="selectorRiego" class="formulario__input">
+                    <option class="formulario__input" value="true">SI</option>
+                    <option class="formulario__input" value="false">NO</option>
+                </select>
                 <input type="submit" class="formulario__item formulario__item--enviar" value="Presupuestar">
             </form>
         </div>
         <div class="contenedor contenedor__presupuesto">
-
+            <h1>PRESUPUESTO</h1>
+            <p>Honorario 1</p>
+            <p>Honorario 1</p>
+            <p>Honorario 1</p>
+            <p>Total</p>
 
         </div>
-
-        <!--FORMULARIOS A LLENAR SEGUN EL TIPO DE MENSURA A REALIZAR-->
-        <div class="contenedor">
-            <form>
-                <label for="superficie">Ingrese la Superficie del Inmueble</label>
-                <input type="text">
-                <button>Enviar</button>
-            </form>
-            <h3 id='presupuesto'></h3>
-        </div>
-
+        
 
     </main>
 
