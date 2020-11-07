@@ -1,4 +1,4 @@
-window.onload = function(){
+window.onload = function () {
     parametros();
 }
 
@@ -21,6 +21,25 @@ function LaborProfesional(tipo, superficie, vertices, irrigado) {
     }
 }
 
+/*Funcinalidad del DOM*/
+
+function InteraccionDom() {
+
+    this.valorId = function(id){
+        document.getElementById(id).value;
+    }
+
+    this.valorClase = function(clase){
+        document.getElementsByClassName(clase).value;
+    }
+
+    this.displayClase = function(clase, display){
+        document.getElementsByClassName(clase).style.display = display;
+    }
+
+}
+
+
 /*Crea objetos con las variables necesarias para el calculo de los honorarios*/
 
 function VariablesGeneralesPresupuesto(superficies, honorarios, vertices, valorVertices, superficieExcedente, valorSuperficieExcedente, certificacionRiego) {
@@ -36,10 +55,6 @@ function VariablesGeneralesPresupuesto(superficies, honorarios, vertices, valorV
 /*Tomas parametros ingresados por prompt*/
 
 function CapturaDeParametrosMensura() {
-
-    this.seleccionarID = function(id){
-        document.getElementById(id);
-    }
 
     this.determinarLaborProfesional = function () {
         do {
@@ -98,7 +113,7 @@ function CapturaDeParametrosMensura() {
 function CalculoHonorarios() {
 
     this.honorarioSuperficie = function (superficie, listaSuperficies, listaHonorarios, tipo) {
-        if(tipo == 'certificacion de riego'){
+        if (tipo == 'certificacion de riego') {
             return 0;
         }
         var ultimoIndice = listaSuperficies.length - 1;
@@ -146,16 +161,51 @@ variablesRural.certificacionRiego = 5000;
 
 var CalculoHonorarios = new CalculoHonorarios();
 
-var tomarParametros = new CapturarParametrosMensura();
-
 var mensura = new LaborProfesional();
 
 
-
-function parametros(){
-    let mensura = document.getElementById('selectorMensura').value;
+function parametros() {
+    
+    let modificarDom = new InteraccionDom();
+    
+    let mensura = modificarDom.valorId('selectorMensura');
     
     console.log(mensura);
+    
+    switch (mensura) {
+        case mensura = 'urbano':
+
+            modificarDom.displayClase('formulario__item superficie', 'block');
+            modificarDom.displayClase('vertices', 'none');
+            modificarDom.displayClase('riego', 'none');
+            break;
+
+        case mensura = 'rural':
+            modificarDom.displayClase('formulario__item superficie', 'block');
+            modificarDom.displayClase('vertices', 'block');
+            modificarDom.displayClase('riego','block');
+            break;
+
+        case mensura = 'secano':
+            modificarDom.displayClase('formulario__item superficie', 'block');
+            modificarDom.displayClase('vertices', 'block');
+            modificarDom.displayClase('riego', 'none');
+            break;
+
+        case mensura = 'certificacion':
+            modificarDom.displayClase('formulario__item superficie', 'none');
+            modificarDom.displayClase('vertices', 'none');
+            modificarDom.displayClase('riego','block');
+            break;
+
+
+        default:
+            modificarDom.displayClase('superficie', 'block');
+            modificarDom.displayClase('vertices', 'block');
+            modificarDom.displayClase('riego', 'block');
+            break;
+    }
+
 }
 
 
