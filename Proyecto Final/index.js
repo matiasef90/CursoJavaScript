@@ -1,8 +1,6 @@
 window.onload = function () {
-    parametros();
+    formularioSegunMensura();
 }
-
-
 
 
 /*Tomas los datos ingresados por el usuario y genera un objeto Mensura*/
@@ -21,23 +19,63 @@ function LaborProfesional(tipo, superficie, vertices, irrigado) {
     }
 }
 
-/*Funcinalidad del DOM*/
+/*Funciones DOM*/
 
-function InteraccionDom() {
+function valorId(id) {
+    return document.getElementById(id).value;
+}
 
-    this.valorId = function(id){
-        document.getElementById(id).value;
+
+function valorClase(clase) {
+    return document.getElementsByClassName(clase).value;
+}
+
+function listaClase(clase) {
+    var lista = document.getElementsByClassName(clase);
+    return lista;
+}
+
+function habilitarEntradasDatos(mensura, lista) {
+    
+    lista[0].style.display = 'block';
+    lista[1].style.display = 'block';
+    lista[2].style.display = 'block';
+    lista[3].style.display = 'block';
+    lista[4].style.display = 'block';
+    lista[5].style.display = 'block';
+
+    switch (mensura) {
+        case mensura = 'urbano':
+            lista[2].style.display = 'none';
+            lista[3].style.display = 'none';
+            lista[4].style.display = 'none';
+            lista[5].style.display = 'none';
+            break;
+
+        case mensura = 'secano':
+            lista[4].style.display = 'none';
+            lista[5].style.display = 'none';
+            break;
+
+        case mensura = 'certificacion':
+            lista[0].style.display = 'none';
+            lista[1].style.display = 'none';
+            lista[2].style.display = 'none';
+            lista[3].style.display = 'none';
+            break;
     }
+}
 
-    this.valorClase = function(clase){
-        document.getElementsByClassName(clase).value;
-    }
+function formularioSegunMensura() {
+    var mensura = valorId('selectorMensura');
 
-    this.displayClase = function(clase, display){
-        document.getElementsByClassName(clase).style.display = display;
-    }
+    var lista = listaClase('mensura');
+
+    habilitarEntradasDatos(mensura, lista);
 
 }
+
+
 
 
 /*Crea objetos con las variables necesarias para el calculo de los honorarios*/
@@ -164,49 +202,7 @@ var CalculoHonorarios = new CalculoHonorarios();
 var mensura = new LaborProfesional();
 
 
-function parametros() {
-    
-    let modificarDom = new InteraccionDom();
-    
-    let mensura = modificarDom.valorId('selectorMensura');
-    
-    console.log(mensura);
-    
-    switch (mensura) {
-        case mensura = 'urbano':
 
-            modificarDom.displayClase('formulario__item superficie', 'block');
-            modificarDom.displayClase('vertices', 'none');
-            modificarDom.displayClase('riego', 'none');
-            break;
-
-        case mensura = 'rural':
-            modificarDom.displayClase('formulario__item superficie', 'block');
-            modificarDom.displayClase('vertices', 'block');
-            modificarDom.displayClase('riego','block');
-            break;
-
-        case mensura = 'secano':
-            modificarDom.displayClase('formulario__item superficie', 'block');
-            modificarDom.displayClase('vertices', 'block');
-            modificarDom.displayClase('riego', 'none');
-            break;
-
-        case mensura = 'certificacion':
-            modificarDom.displayClase('formulario__item superficie', 'none');
-            modificarDom.displayClase('vertices', 'none');
-            modificarDom.displayClase('riego','block');
-            break;
-
-
-        default:
-            modificarDom.displayClase('superficie', 'block');
-            modificarDom.displayClase('vertices', 'block');
-            modificarDom.displayClase('riego', 'block');
-            break;
-    }
-
-}
 
 
 /*

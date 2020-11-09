@@ -27,18 +27,18 @@
         <div class="contenedor contenedor__datos">
             <form class="formulario">
                 <label class="formulario__item">Ingresa tipo de Labor Profesional a Realizar</label>
-                <select id="selectorMensura" class="formulario__input" onchange="parametros()">
+                <select id="selectorMensura" class="formulario__input" onchange="formularioSegunMensura()">
                     <option class="formulario__input" value="urbano">Urbano</option>
                     <option class="formulario__input" value="rural">Rural</option>
                     <option class="formulario__input" value="secano">Secano</option>
                     <option class="formulario__input" value="certificacion">Certificación de Riego</option>
                 </select>
-                <label for="superficie" class="formulario__item superficie">Ingrese la Superficie del Inmueble</label>
-                <input type='number' class="formulario__input superficie">
-                <label for="vertices" class="formulario__item vertice">Ingrese la cantidad de vertices</label>
-                <input type='number' class="formulario__input vertice">
-                <label for="riego" class="formulario__item riego">Indique si la propiedad cuanta con derecho de riego</label>
-                <select name="riego" id="selectorRiego" class="formulario__input  riego">
+                <label for="superficie" class="formulario__item mensura">Ingrese la Superficie del Inmueble</label>
+                <input type='number' class="formulario__input mensura">
+                <label for="vertices" class="formulario__item mensura">Ingrese la cantidad de vertices</label>
+                <input type='number' class="formulario__input mensura">
+                <label for="riego" class="formulario__item mensura">Indique si la propiedad cuanta con derecho de riego</label>
+                <select name="riego" id="selectorRiego" class="formulario__input mensura">
                     <option class="formulario__input" value="true">SI</option>
                     <option class="formulario__input" value="false">NO</option>
                 </select>
