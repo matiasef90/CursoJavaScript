@@ -171,9 +171,9 @@ function botonPresupuesto() {
         let valorHonorario = sessionStorage.getItem('honorario');
         formulario.style.display = 'none';
         presupuesto.style.display = 'block';
-        let mensaje = `Los honorarios son: ${valorHonorario} pesos.`;
-        document.getElementById('honorariosTotales').style.innerHTML(mensaje);
         boton.innerHTML = 'Otro Presupuesto';
+        let mensaje = `Los honorarios son: ${valorHonorario} pesos.`;
+        document.getElementById('honorariosTotales').innerHTML = mensaje;
         console.log(mensura, superficie, vertices, irrigado);
     } else {
         formulario.style.display = 'block';
