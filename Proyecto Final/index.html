@@ -25,7 +25,7 @@
 
         <!--BOTONES PARA SELECCCIONAR LA MENSURA A REALIZAR-->
         <div class="contenedor contenedor__datos">
-            <form class="formulario">
+            <form class="formulario" id='datosMensura'>
                 <label class="formulario__item">Ingresa tipo de Labor Profesional a Realizar</label>
                 <select id="selectorMensura" class="formulario__input" onchange="formularioSegunMensura()">
                     <option class="formulario__input" value="urbano">Urbano</option>
@@ -34,24 +34,24 @@
                     <option class="formulario__input" value="certificacion">Certificación de Riego</option>
                 </select>
                 <label for="superficie" class="formulario__item mensura">Ingrese la Superficie del Inmueble</label>
-                <input type='number' class="formulario__input mensura">
+                <input type='number' class="formulario__input mensura" id="superficie">
                 <label for="vertices" class="formulario__item mensura">Ingrese la cantidad de vertices</label>
-                <input type='number' class="formulario__input mensura">
+                <input type='number' class="formulario__input mensura" id="vertices">
                 <label for="riego" class="formulario__item mensura">Indique si la propiedad cuanta con derecho de riego</label>
                 <select name="riego" id="selectorRiego" class="formulario__input mensura">
                     <option class="formulario__input" value="true">SI</option>
                     <option class="formulario__input" value="false">NO</option>
                 </select>
-                <input type="submit" class="formulario__item formulario__item--enviar" value="Presupuestar">
             </form>
         </div>
-        <div class="contenedor contenedor__presupuesto">
+        
+        <div class="contenedor contenedor__presupuesto" id="presupuestado">
             <h1>PRESUPUESTO</h1>
-            <p>Honorario 1</p>
-            <p>Honorario 1</p>
-            <p>Honorario 1</p>
-            <p>Total</p>
+            <p id='honorariosTotales'></p>
+        </div>
 
+        <div class="contenedor contenedor__presupuesto">
+            <button id='botonPresupuesto' class="formulario__item formulario__item--enviar" onclick="botonPresupuesto()">Presupuestar</button>
         </div>
         
 
