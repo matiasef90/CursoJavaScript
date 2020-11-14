@@ -1,8 +1,7 @@
-window.onload = function () {
 
+$(document).ready(function(){
     formularioSegunMensura();
-}
-
+});
 
 /*Tomas los datos ingresados por el usuario y genera un objeto Mensura*/
 
@@ -16,47 +15,43 @@ function LaborProfesional(tipo, superficie, vertices, irrigado) {
 /*Funciones DOM*/
 
 function valorId(id) {
-    var valor = document.getElementById(id).value;
+    var valor = $('#' + id).val();
     return valor;
 }
 
 
 function valorClase(clase) {
-    return document.getElementsByClassName(clase).value;
+    return $('.' + clase).val();
 }
 
 function listaClase(clase) {
-    var lista = document.getElementsByClassName(clase);
+    var lista = $('.' + clase);
     return lista;
 }
 
 function habilitarEntradasDatos(mensura, lista) {
-
-    lista[0].style.display = 'block';
-    lista[1].style.display = 'block';
-    lista[2].style.display = 'block';
-    lista[3].style.display = 'block';
-    lista[4].style.display = 'block';
-    lista[5].style.display = 'block';
+    debugger
+    for(var i = 0; i < lista.length; i++){
+        lista[i].style.display = 'block';
+    }
 
     switch (mensura) {
         case mensura = 'urbano':
-            lista[2].style.display = 'none';
-            lista[3].style.display = 'none';
-            lista[4].style.display = 'none';
-            lista[5].style.display = 'none';
+            for(var i = 2; i < lista.length; i++){
+                lista[i].style.display = 'none';
+            }
             break;
 
         case mensura = 'secano':
-            lista[4].style.display = 'none';
-            lista[5].style.display = 'none';
+            for(var i = 4; i < lista.length; i++){
+                lista[i].style.display = 'none';
+            }
             break;
 
         case mensura = 'certificacion':
-            lista[0].style.display = 'none';
-            lista[1].style.display = 'none';
-            lista[2].style.display = 'none';
-            lista[3].style.display = 'none';
+            for(var i = 0; i < lista.length - 2; i++){
+                lista[i].style.display = 'none';
+            }
             break;
     }
 }
@@ -157,12 +152,11 @@ por exceso de superficie.-*/
 var mensuraNueva = new LaborProfesional();
 
 function botonPresupuesto() {
-    debugger;
-    var boton = document.getElementById('botonPresupuesto');
+    var boton =  document.getElementById('botonPresupuesto');
     var formulario = document.getElementById('datosMensura');
     var presupuesto = document.getElementById('presupuestado');
     mensuraNueva.tipo = valorId('selectorMensura');
-    mensuraNueva.superficie = valorId('vertices');
+    mensuraNueva.superficie = valorId('superficie');
     mensuraNueva.vertices = valorId('vertices');
     mensuraNueva.irrigado = valorId('selectorRiego');
     let honorario = sacarPresupuesto(mensuraNueva.tipo, mensuraNueva.superficie, mensuraNueva.vertices, mensuraNueva.irrigado);
@@ -173,8 +167,7 @@ function botonPresupuesto() {
         presupuesto.style.display = 'block';
         boton.innerHTML = 'Otro Presupuesto';
         let mensaje = `Los honorarios son: ${valorHonorario} pesos.`;
-        document.getElementById('honorariosTotales').innerHTML = mensaje;
-        console.log(mensura, superficie, vertices, irrigado);
+        $('#honorariosTotales').html(mensaje);
     } else {
         formulario.style.display = 'block';
         presupuesto.style.display = 'none';
