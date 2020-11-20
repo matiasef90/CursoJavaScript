@@ -32,25 +32,25 @@ function listaClase(clase) {
 function habilitarEntradasDatos(mensura, lista) {
     debugger
     for(var i = 0; i < lista.length; i++){
-        lista[i].style.display = 'block';
+        $(lista[i]).slideDown(600);
     }
 
     switch (mensura) {
         case mensura = 'urbano':
             for(var i = 2; i < lista.length; i++){
-                lista[i].style.display = 'none';
+                $(lista[i]).slideUp(600);
             }
             break;
 
         case mensura = 'secano':
             for(var i = 4; i < lista.length; i++){
-                lista[i].style.display = 'none';
+                $(lista[i]).slideUp(600);
             }
             break;
 
         case mensura = 'certificacion':
             for(var i = 0; i < lista.length - 2; i++){
-                lista[i].style.display = 'none';
+                $(lista[i]).slideUp(600);
             }
             break;
     }
@@ -152,26 +152,26 @@ por exceso de superficie.-*/
 var mensuraNueva = new LaborProfesional();
 
 function botonPresupuesto() {
-    var boton =  document.getElementById('botonPresupuesto');
-    var formulario = document.getElementById('datosMensura');
-    var presupuesto = document.getElementById('presupuestado');
+    var boton =  $('#botonPresupuesto');
+    var formulario = $('#datosMensura');
+    var presupuesto = $('#presupuestado');
     mensuraNueva.tipo = valorId('selectorMensura');
     mensuraNueva.superficie = valorId('superficie');
     mensuraNueva.vertices = valorId('vertices');
     mensuraNueva.irrigado = valorId('selectorRiego');
     let honorario = sacarPresupuesto(mensuraNueva.tipo, mensuraNueva.superficie, mensuraNueva.vertices, mensuraNueva.irrigado);
-    if (boton.innerHTML == 'Presupuestar'){
+    if ($(boton).html() == 'Presupuestar'){
         sessionStorage.setItem('honorario', honorario);
         let valorHonorario = sessionStorage.getItem('honorario');
-        formulario.style.display = 'none';
-        presupuesto.style.display = 'block';
-        boton.innerHTML = 'Otro Presupuesto';
+        $(formulario).fadeOut();
+        $(presupuesto).fadeIn();
+        $(boton).html('Otro Presupuesto');
         let mensaje = `Los honorarios son: ${valorHonorario} pesos.`;
         $('#honorariosTotales').html(mensaje);
     } else {
-        formulario.style.display = 'block';
-        presupuesto.style.display = 'none';
-        boton.innerHTML = 'Presupuestar';
+        $(formulario).fadeIn();
+        $(presupuesto).fadeOut();
+        $(boton).html('Presupuestar');
     }
 }
 

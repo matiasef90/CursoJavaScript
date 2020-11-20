@@ -78,6 +78,8 @@
   font-size: 1.6rem;
   background-color: #16a596;
   width: 100%;
+  position: fixed;
+  bottom: 0px;
   height: 4rem; }
   .footer .contenedor p {
     font-family: 'Poppins';
