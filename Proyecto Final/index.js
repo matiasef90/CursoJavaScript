@@ -1,6 +1,7 @@
 
 $(document).ready(function(){
     formularioSegunMensura();
+    siguiente();
 });
 
 /*Tomas los datos ingresados por el usuario y genera un objeto Mensura*/
@@ -30,7 +31,6 @@ function listaClase(clase) {
 }
 
 function habilitarEntradasDatos(mensura, lista) {
-    debugger
     for(var i = 0; i < lista.length; i++){
         $(lista[i]).slideDown(600);
     }
@@ -173,6 +173,44 @@ function botonPresupuesto() {
         $(presupuesto).fadeOut();
         $(boton).html('Presupuestar');
     }
+}
+
+let proxyUrl = "https://cors-anywhere.herokuapp.com/";
+let apiKey = '812ec1ea6f394d5497dda7cf1af60961';
+let busqueda = 'covid';
+let noticia = 0;
+const otraNoticia = (noticia) => {
+    if(noticia < 5){
+        noticia++;
+    }else{
+        noticia = 0;
+    }
+    return noticia;
+}
+
+let numeroNoticia = 5;
+
+const siguiente = () => {
+    if(numeroNoticia < 5){
+        numeroNoticia++;
+    }else{
+        numeroNoticia = 0;
+    }
+    console.log(numeroNoticia);
+    $.ajax({
+        type: "GET",
+        url: `${proxyUrl}http://newsapi.org/v2/top-headlines?sources=google-news-ar&apiKey=${apiKey}`,
+        success: (response) => {
+            console.log(response);
+            $('#titulo-1 a').html(response.articles[numeroNoticia].title);
+            $('#titulo-1 a').attr( 'href', response.articles[numeroNoticia].url);
+            $('#imagen-1').attr('src', response.articles[numeroNoticia].urlToImage);
+    
+        },
+        error: () => {
+            console.log('no se pudo obtener informacion');
+        }
+    });
 }
 
 
