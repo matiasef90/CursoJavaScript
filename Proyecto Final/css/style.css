@@ -3,6 +3,20 @@
   padding: 0px;
   font-size: 10px; }
 
+#main {
+  margin: 0px auto;
+  display: flex;
+  flex-flow: row nowrap;
+  width: 90%; }
+
+#contenido {
+  display: flex;
+  flex-flow: row nowrap;
+  width: 90%; }
+
+#secciones {
+  width: 80%; }
+
 .header {
   height: 150px;
   background-color: #16a596;
@@ -27,6 +41,18 @@
   flex-flow: row wrap;
   justify-content: space-evenly; }
 
+.card {
+  width: 30%; }
+
+.card img {
+  width: 100%;
+  height: auto; }
+
+@supports (object-fit: cover) {
+  .card img {
+    height: 100%;
+    object-fit: cover;
+    object-position: center center; } }
 .formulario {
   width: 60%;
   height: auto;
@@ -48,16 +74,18 @@
   background-color: #898b8a;
   font-size: 1.6rem; }
 
-.formulario__item--enviar {
+.boton {
   display: block;
   width: max-content;
   padding: 1rem;
+  font-size: 1.6rem;
+  font-family: 'Poppins';
   align-self: flex-start;
   background-color: #898b8a;
   color: #fae0df;
   transition: 500ms; }
 
-.formulario__item--enviar:hover, .formulario__input:hover {
+.boton:hover, .input:hover {
   background-color: #16a596;
   color: #fae0df; }
 

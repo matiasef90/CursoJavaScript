@@ -1,12 +1,18 @@
+$colorPrimario: #16a596;
+$fondoOscuro: #898b8a;
+$colorClaroUno: #f6f5f1;
+$colorClaroDos: #fae0df;
+
+
 .header{
     height: 150px;
-    background-color: #16a596;
+    background-color: $colorPrimario;
     margin-bottom: 2rem;
     h1{
         font-family: 'Poppins';
         letter-spacing: 2px;
         text-align: center;
-        color: #f6f5f1; 
+        color: $colorClaroUno; 
         font-size: 4rem;
         font-weight: 500;
     
@@ -27,6 +33,23 @@
     justify-content: space-evenly;
 }
 
+.card{
+    width: 30%;
+}
+
+.card img{
+    width: 100%;
+    height: auto;
+}
+
+@supports(object-fit: cover){
+    .card img{
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+    }
+}
+
 .formulario{
     width: 60%;
     height: auto;
@@ -37,7 +60,7 @@
 .titulo-2{
    font-family: 'Poppins';
    border-radius: .2rem;
-   color: #16a596;
+   color: $colorPrimario;
    font-size: 2rem;
    margin-top: 1rem;
    margin-bottom: 1rem;
@@ -46,24 +69,26 @@
 .input{
     width: 50%;
     font-family: 'Poppins';
-    color: #fae0df;
-    background-color: #898b8a;
+    color: $colorClaroDos;
+    background-color:$fondoOscuro;
     font-size: 1.6rem;  
 }
 
-.formulario__item--enviar{
+.boton{
     display: block;
     width: max-content;
     padding: 1rem;
+    font-size: 1.6rem;
+    font-family: 'Poppins';
     align-self: flex-start;
-    background-color: #898b8a;
-    color: #fae0df;
+    background-color:$fondoOscuro;
+    color: $colorClaroDos;
     transition: 500ms;
 }
 
-.formulario__item--enviar:hover,  .formulario__input:hover{
-    background-color: #16a596;
-    color: #fae0df;
+.boton:hover,  .input:hover{
+    background-color: $colorPrimario;
+    color: $colorClaroDos;
 }
 
 .contenedor__presupuesto{
@@ -71,13 +96,13 @@
     flex-flow: column;
     width: 50%;
     h1{
-        color: #16a596;
+        color:$colorPrimario;
         font-size: 2.5rem;
         font-family: 'Poppins';
 
     }
     p{
-        color: #16a596;
+        color:$colorPrimario;
         font-size: 2.5rem;
         font-family: 'Poppins';
 
@@ -87,7 +112,7 @@
 
 .footer{
     font-size: 1.6rem;
-    background-color: #16a596;
+    background-color:$colorPrimario;
     width: 100%;
     position: fixed;
     bottom: 0px;
@@ -96,7 +121,7 @@
         p{
             font-family: 'Poppins';
             font-weight: 500;
-            color: #f6f5f1;
+            color: $colorClaroUno;
             font-size: 1.6rem;
             line-height: 4rem;
         
