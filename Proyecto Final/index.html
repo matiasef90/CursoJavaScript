@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <!--link rel="stylesheet" href="./css/style.css"-->
+    <link rel="stylesheet" href="./css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,800;1,500&display=swap" rel="stylesheet">
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
@@ -33,59 +33,53 @@
             </header>
         </div>
     </div>
-    <div class="row">
+    
+    <div class="row container mx-auto h">
         <div class="col-8">
             <div id="secciones">
                 <div class="contenedor contenedor__datos">
-                    <form class="d-flex flex-column" id='datosMensura'>
-                        <label class="titulo-2">Ingresa tipo de Labor Profesional a Realizar</label>
-                        <select id="selectorMensura" class="input" onchange="formularioSegunMensura()">
-                            <option class="input" value="urbano">Urbano</option>
-                            <option class="input" value="rural">Rural</option>
-                            <option class="input" value="secano">Secano</option>
-                            <option class="input" value="certificacion">Certificación de Riego</option>
-                        </select>
-                        <label for="superficie" class="titulo-2 mensura">Ingrese la Superficie del
-                            Inmueble</label>
-                        <input type='number' class="input mensura" id="superficie">
-                        <label for="vertices" class="titulo-2 mensura">Ingrese la cantidad de
-                            vertices</label>
-                        <input type='number' class="input mensura" id="vertices">
-                        <label for="riego" class="titulo-2 mensura">Indique si la propiedad cuanta con
-                            derecho de
-                            riego</label>
-                        <select name="riego" id="selectorRiego" class="input mensura">
-                            <option class="input" value="true">SI</option>
-                            <option class="input" value="false">NO</option>
-                        </select>
-                    </form>
-                    <div class="contenedor contenedor__presupuesto" id="presupuestado">
-                        <h1>PRESUPUESTO</h1>
+                    <div id="datosMensura">
+                        <form class="d-flex flex-column mt-3" id='datosMensura'>
+                            <h4 class="text-success">Ingresa tipo de Labor Profesional a Realizar</h4>
+                            <select id="selectorMensura" class="input" onchange="formularioSegunMensura()">
+                                <option class="input" value="urbano">Urbano</option>
+                                <option class="input" value="rural">Rural</option>
+                                <option class="input" value="secano">Secano</option>
+                                <option class="input" value="certificacion">Certificación de Riego</option>
+                            </select>
+                            <label for="superficie" class="titulo-2 mensura">Ingrese la Superficie del
+                                Inmueble</label>
+                            <input type='number' class="input mensura" id="superficie">
+                            <label for="vertices" class="titulo-2 mensura">Ingrese la cantidad de
+                                vertices</label>
+                            <input type='number' class="input mensura" id="vertices">
+                            <label for="riego" class="titulo-2 mensura">Indique si la propiedad cuanta con
+                                derecho de
+                                riego</label>
+                            <select name="riego" id="selectorRiego" class="input mensura">
+                                <option class="input" value="true">SI</option>
+                                <option class="input" value="false">NO</option>
+                            </select>
+                        </form>
+                    </div>
+                    <div  id="presupuestado">
+                        <h3 id="tituloPresupuesto" class="mt-3 text-success">PRESUPUESTO</h3>
                         <p id='honorariosTotales'></p>
                     </div>
                 </div>
                 <div class="contenedor contenedor__presupuesto">
-                    <button id='botonPresupuesto' class="boton" onclick="botonPresupuesto()">Presupuestar</button>
+                    <button id='botonPresupuesto' class="btn btn-lg btn-danger mt-3" onclick="botonPresupuesto()">Presupuestar</button>
                 </div>
             </div>
 
         </div>
         <div id="noticias" class="col-4 my-3">
-                <h5 id="titulo-1"><a href=""></a></h5>
+                <h5 id="titulo-1"><a href="" target="_blank"></a></h5>
                 <img id="imagen-1" class='rounded img-fluid' src="" alt="">
-                <button class="btn btn-success btn-lg mt-2" onclick="siguiente()">Siguiente</button>
+                    <button class="btn btn-success btn-lg mt-2 mx-auto" onclick="siguiente()">Siguiente</button>
         </div>
     </div>
-    <div class="row">
-        <div class="col-12 bg-primary">
-            <footer id='footer' class="footer">
-                <div class="contenedor">
-                    <p class='text-center my-2 text-white'>Matías Fernandez Desarrollo Web &copy; Todos los derechos
-                        Reservados</p>
-                </div>
-            </footer>
-        </div>
-    </div>
+    
 
 </body>
 

@@ -1,5 +1,6 @@
 
 $(document).ready(function(){
+    $('#presupuestado').hide();
     formularioSegunMensura();
     siguiente();
 });
@@ -186,7 +187,7 @@ const otraNoticia = (noticia) => {
         noticia = 0;
     }
     return noticia;
-}
+}   
 
 let numeroNoticia = 5;
 
