@@ -2,7 +2,6 @@
 $(document).ready(function(){
     $('#presupuestado').hide();
     formularioSegunMensura();
-    siguiente();
 });
 
 /*Tomas los datos ingresados por el usuario y genera un objeto Mensura*/
@@ -36,6 +35,9 @@ function habilitarEntradasDatos(mensura, lista) {
         $(lista[i]).slideDown(600);
     }
 
+    fondoFormulario(mensura, '#fondoMensuras');
+
+
     switch (mensura) {
         case mensura = 'urbano':
             for(var i = 2; i < lista.length; i++){
@@ -43,13 +45,13 @@ function habilitarEntradasDatos(mensura, lista) {
             }
             break;
 
-        case mensura = 'secano':
+        case mensura = 'desert':
             for(var i = 4; i < lista.length; i++){
                 $(lista[i]).slideUp(600);
             }
             break;
 
-        case mensura = 'certificacion':
+        case mensura = 'river':
             for(var i = 0; i < lista.length - 2; i++){
                 $(lista[i]).slideUp(600);
             }
@@ -126,7 +128,7 @@ function irrigado(derecho){
 }
 
 function sacarPresupuesto(tipo, superficie, vertices, riego) {
-    if(tipo == 'certificacion'){
+    if(tipo == 'river'){
         return 5000;
     }
     if(tipo == 'urbano'){
@@ -137,7 +139,7 @@ function sacarPresupuesto(tipo, superficie, vertices, riego) {
         let parcialDos = irrigado(riego);
         let honorario = parcialUno + parcialDos;
         return honorario;
-    }else if(tipo == 'secano'){
+    }else if(tipo == 'desert'){
         let honorario = presupuestoRuralSecano(superficie, vertices);
         return honorario;
     }
@@ -153,6 +155,7 @@ por exceso de superficie.-*/
 var mensuraNueva = new LaborProfesional();
 
 function botonPresupuesto() {
+    var bgcard = $('#cardPrincipal')
     var boton =  $('#botonPresupuesto');
     var formulario = $('#datosMensura');
     var presupuesto = $('#presupuestado');
@@ -164,57 +167,110 @@ function botonPresupuesto() {
     if ($(boton).html() == 'Presupuestar'){
         sessionStorage.setItem('honorario', honorario);
         let valorHonorario = sessionStorage.getItem('honorario');
+        bgcard.removeClass('bg-secondary');
+        bgcard.addClass('bg-success');
         $(formulario).fadeOut();
         $(presupuesto).fadeIn();
         $(boton).html('Otro Presupuesto');
         let mensaje = `Los honorarios son: ${valorHonorario} pesos.`;
         $('#honorariosTotales').html(mensaje);
     } else {
+        bgcard.removeClass('bg-success');
+        bgcard.addClass('bg-secondary');
         $(formulario).fadeIn();
         $(presupuesto).fadeOut();
+        $('tituloHonorario').fadeOut();
         $(boton).html('Presupuestar');
     }
 }
 
-let proxyUrl = "https://cors-anywhere.herokuapp.com/";
-let apiKey = '812ec1ea6f394d5497dda7cf1af60961';
-let busqueda = 'covid';
-let noticia = 0;
-const otraNoticia = (noticia) => {
-    if(noticia < 5){
-        noticia++;
-    }else{
-        noticia = 0;
-    }
-    return noticia;
-}   
 
-let numeroNoticia = 5;
-
-const siguiente = () => {
-    if(numeroNoticia < 5){
-        numeroNoticia++;
-    }else{
-        numeroNoticia = 0;
-    }
-    console.log(numeroNoticia);
+const fondoFormulario = (fondo, caja, indice = 0) =>{
+    
+    var apiID = 'AvvgnQyOX0AGJ6SdFn-FuIaRsn6AtUJGJsRzjX1ajZU';
+    var query = fondo;
+    
     $.ajax({
         type: "GET",
-        url: `${proxyUrl}http://newsapi.org/v2/top-headlines?sources=google-news-ar&apiKey=${apiKey}`,
-        success: (response) => {
-            console.log(response);
-            $('#titulo-1 a').html(response.articles[numeroNoticia].title);
-            $('#titulo-1 a').attr( 'href', response.articles[numeroNoticia].url);
-            $('#imagen-1').attr('src', response.articles[numeroNoticia].urlToImage);
+        url: `https://api.unsplash.com/search/photos?query=${query}&client_id=` + apiID,
+        dataType: 'json',
+        success: function (response) {
+            let imagen = response.results[indice].urls.regular;
+            $(caja).css('background-image', `url(${imagen})`);
+            $(caja).css('background-size', 'cover');
     
         },
         error: () => {
-            console.log('no se pudo obtener informacion');
+            console.log('no cargo la imagen')
+        } 
+    });
+}
+
+var fondoHome = fondoFormulario('building', '#home');
+var fondoNoticias = fondoFormulario('news', '#noticias', 4);
+
+
+const noticias = (i) =>{
+    let apiKey = '4adfee5e5dc9490f840b0bdbce584ca0';
+    let queryUno = 'ULTIMAS_NOTICIAS';
+    let queryDos = 'ECONOMIA';
+
+    $.ajax({
+        type: "GET",
+        url: `https://api.jornalia.net/api/v1/articles?apiKey=${apiKey}&categories=${queryUno}%2C${queryDos}`,
+        success: function (json) {
+            let articulo = json.articles[i];
+            $('#titulo a').html(articulo.title);
+            $('#titulo a').attr('href', articulo.sourceUrl);
+            $('#imgNoticia').attr('src', articulo.imageUrl);
+            $('#descripcion').html(articulo.description);
+
+        },
+        error: () =>{
+            console.log('No hay noticias.-');
         }
     });
 }
 
+let indiceNoticias = 5;
+
+const siguiente = () =>{
+    if(indiceNoticias > 4){
+        indiceNoticias = 0;
+    }else{
+        indiceNoticias++;
+    }
+    noticias(indiceNoticias);
+}
+
+const cargarHome = () =>{
+    $('#home').addClass('d-block');
+    $('#fondoMensuras').removeClass('d-block');
+    $('#noticias').removeClass('d-block');
+    $('#liHome').addClass('bg-secondary');
+    $('#liPresupuesto').removeClass('bg-secondary');
+    $('#liNoticias').removeClass('bg-secondary');
+}
+const cargarPresupuesto = () =>{
+    $('#home').removeClass('d-block');
+    $('#fondoMensuras').addClass('d-block');
+    $('#noticias').removeClass('d-block');
+    $('#liHome').removeClass('bg-secondary');
+    $('#liPresupuesto').addClass('bg-secondary');
+    $('#liNoticias').removeClass('bg-secondary');
+}
+const cargarNoticias = () =>{
+    $('#home').removeClass('d-block');
+    $('#fondoMensuras').removeClass('d-block');
+    $('#noticias').addClass('d-block');
+    $('#liHome').removeClass('bg-secondary');
+    $('#liPresupuesto').removeClass('bg-secondary');
+    $('#liNoticias').addClass('bg-secondary');
+}
 
 
-
+cargarHome();
+cargarNoticias();
+cargarPresupuesto();
+siguiente();
 botonPresupuesto();

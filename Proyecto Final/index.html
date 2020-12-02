@@ -18,69 +18,141 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
-    <script src="./jquery.js"></script>
+    <script refil src="./jquery.js"></script>
     <script src="./index.js"></script>
-
-
     <title>Calculo Honorarios CAM</title>
+
+
 </head>
 
 <body>
-    <div class="container-fluid bg-primary">
+    <div class="container-fluid bg-dark">
+        <header class="row d-flex align-items-center">
+            <div class="col-8">
+                <h1 class="pl-2 py-3 text-light">Calculo Honorarios Sugeridos CAM</h1>
+            </div>
+            <div class="col-4">
+                <ul class="nav">
+                    <li id="liHome" class="nav-item rounded bg-secondary">
+                        <a class="nav-link text-light" onclick="cargarHome()">Home</a>
+                    </li>
+                    <li id="liPresupuesto" class="nav-item rounded">
+                        <a class="nav-link text-light" value='false' onclick="cargarPresupuesto()">Presupuestos</a>
+                    </li>
+                    <li id="liNoticias" class="nav-item rounded">
+                        <a class="nav-link text-light" onclick="cargarNoticias()">Noticias</a>
+                    </li>
+                </ul>
+            </div>
+        </header>
         <div class="container">
-            <header class="row">
-                    <h1 class="text-center text-white my-3">Calculo Honorarios Sugeridos CAM</h1>
-            </header>
         </div>
     </div>
-    
-    <div class="row container mx-auto h">
-        <div class="col-8">
-            <div id="secciones">
-                <div class="contenedor contenedor__datos">
+
+    <div id="home" class="container-fluid d-none d-block">
+        <div class="row">
+            <div class="container rounded bg-secondary mt-5 col-8">
+                <h1 class="p-3 text-light text-uppercase">Quienes Somos</h1>
+                <p class="text-light p-2 pb-4 py-2 text-justify">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi voluptatibus eius repudiandae non
+                    quasi
+                    nihil! Laborum consectetur nihil odio omnis aut magni iure cumque nam exercitationem eum repudiandae
+                    accusamus officia iste consequatur cum mollitia, enim consequuntur sunt doloribus qui error quisquam
+                    veritatis. Recusandae, illo. Id ipsam optio illo quae asperiores nisi a accusantium consequatur quis
+                    excepturi. Ea ipsum voluptates quisquam nobis architecto illum quos, fuga tempore quas eos libero
+                    non,
+                    veritatis suscipit. Asperiores laborum, vel minima soluta architecto earum sed animi et fugit esse
+                    cum
+                    optio? Quod ipsa vero odio, aut eligendi distinctio illum vitae fugiat eum necessitatibus
+                    reiciendis,
+                    exercitationem, iure error facilis. Accusamus libero blanditiis quasi aspernatur rem ullam aliquid
+                    alias
+                    soluta minima, quibusdam quaerat repellendus ut a doloremque consectetur repellat cum nobis cumque
+                    voluptatem ducimus natus ipsa eius? Ipsam eaque saepe nam iure corporis illo. Hic, quidem eos. Iusto
+                    iste
+                    minima facere tempora! Quibusdam illum officiis, excepturi magni exercitationem repudiandae odit ut
+                    doloremque dignissimos sequi nam optio itaque, dolor tempora quaerat beatae asperiores inventore,
+                    quasi enim
+                    iure! Laudantium aut possimus ad incidunt deleniti, quod minima fugiat, fuga ipsam explicabo quidem
+                    cupiditate. Quod ex at nihil quaerat repudiandae beatae praesentium ducimus! Facilis explicabo
+                    adipisci
+                    praesentium modi a voluptate, ipsum odit neque repellendus delectus eos quam voluptatibus magnam
+                    tenetur vel
+                    impedit aliquam. Libero itaque aliquam molestias commodi qui quod quaerat officia quae facere quis,
+                    voluptas
+                    saepe laborum. Velit, repellendus ullam eos ipsam cum, asperiores nobis praesentium, dolores
+                    necessitatibus
+                    impedit nihil iure aut commodi fugit eaque! Sed beatae cumque quo nostrum laudantium, quasi laborum
+                    quis
+                    sunt odio est ipsam. Quod quae ipsa ea nam asperiores illo? Aut suscipit, nostrum eius tempore,
+                    dolores,
+                    natus neque fugiat et accusamus quisquam inventore cum ea! Consequuntur, numquam quasi, animi
+                    maiores ipsam
+                    saepe aliquid recusandae suscipit consectetur unde, dolores cumque eos neque amet dicta fuga non.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div id="fondoMensuras" class="container-fluid d-none">
+        <div class="row container mx-auto">
+            <div class="col-8">
+                <div id='cardPrincipal' class="contenedor contenedor__datos bg-secondary p-3 mt-5 rounded shadow-lg">
                     <div id="datosMensura">
-                        <form class="d-flex flex-column mt-3" id='datosMensura'>
-                            <h4 class="text-success">Ingresa tipo de Labor Profesional a Realizar</h4>
+                        <h3 class="mt-4 text-light" id="tituloHonorario">Ingresa tipo de Labor Profesional a
+                            Realizar</h3>
+                        <form class="d-flex flex-column mt-3 p-2" id='datosMensura'>
                             <select id="selectorMensura" class="input" onchange="formularioSegunMensura()">
-                                <option class="input" value="urbano">Urbano</option>
-                                <option class="input" value="rural">Rural</option>
-                                <option class="input" value="secano">Secano</option>
-                                <option class="input" value="certificacion">Certificación de Riego</option>
+                                <option class="input bg-dark text-light mx-2 px-2" value="urbano">Urbano</option>
+                                <option class="input bg-dark text-light mx-2 px-2" value="rural">Rural</option>
+                                <option class="input bg-dark text-light mx-2 px-2" value="desert">Secano</option>
+                                <option class="input bg-dark text-light mx-2 px-2" value="river">Certificación de
+                                    Riego</option>
                             </select>
-                            <label for="superficie" class="titulo-2 mensura">Ingrese la Superficie del
+                            <label for="superficie" class="titulo-2 mensura text-light mt-2 pt-2">Ingrese la
+                                Superficie del
                                 Inmueble</label>
-                            <input type='number' class="input mensura" id="superficie">
-                            <label for="vertices" class="titulo-2 mensura">Ingrese la cantidad de
+                            <input type='number' class="input mensura text-dark mt-2 pt-2" id="superficie">
+                            <label for="vertices" class="titulo-2 mensura text-light mt-2 pt-2">Ingrese la cantidad
+                                de
                                 vertices</label>
-                            <input type='number' class="input mensura" id="vertices">
-                            <label for="riego" class="titulo-2 mensura">Indique si la propiedad cuanta con
+                            <input type='number' class="input mensura text-dark mt-2 pt-2" id="vertices">
+                            <label for="riego" class="titulo-2 mensura text-light mt-2 pt-2">Indique si la propiedad
+                                cuanta con
                                 derecho de
                                 riego</label>
-                            <select name="riego" id="selectorRiego" class="input mensura">
-                                <option class="input" value="true">SI</option>
-                                <option class="input" value="false">NO</option>
+                            <select name="riego" id="selectorRiego text-light mt-2 pt-2" class="input mensura">
+                                <option class="input bg-dark text-light mt-2 pt-2" value="true">SI</option>
+                                <option class="input bg-dark text-light mt-2 pt-2" value="false">NO</option>
                             </select>
                         </form>
                     </div>
-                    <div  id="presupuestado">
-                        <h3 id="tituloPresupuesto" class="mt-3 text-success">PRESUPUESTO</h3>
-                        <p id='honorariosTotales'></p>
+                    <div id="presupuestado">
+                        <h3 id="tituloPresupuesto" class="mt-3 text-light">PRESUPUESTO</h3>
+                        <p id='honorariosTotales' class="text-light"></p>
                     </div>
                 </div>
                 <div class="contenedor contenedor__presupuesto">
-                    <button id='botonPresupuesto' class="btn btn-lg btn-danger mt-3" onclick="botonPresupuesto()">Presupuestar</button>
+                    <button id='botonPresupuesto' class="btn btn-lg btn-primary border border-primary mt-3"
+                        onclick="botonPresupuesto()">Presupuestar</button>
                 </div>
             </div>
-
-        </div>
-        <div id="noticias" class="col-4 my-3">
-                <h5 id="titulo-1"><a href="" target="_blank"></a></h5>
-                <img id="imagen-1" class='rounded img-fluid' src="" alt="">
-                    <button class="btn btn-success btn-lg mt-2 mx-auto" onclick="siguiente()">Siguiente</button>
         </div>
     </div>
-    
 
+    <div id="noticias" class="container-fluid d-none">
+        <div class="row d-flex flex-column">
+            <div class="container rounded bg-secondary mt-5 col-6">
+                <h1 class="text-light ml-2 mt-3">ULTIMAS NOTICIAS</h1>
+                <h5 id='titulo' class="p-3 mx-auto"><a class="text-light text-decoration-none" target="_blanck"></a></h5>
+                <img id="imgNoticia" src="" class="img-fluid rounded px-2  mx-auto">
+                <p id="descripcion" class="text-light p-2 pb-4 py-2 text-justify  mx-auto"></p>
+            </div>
+            <div class="mx-auto">
+                <button id='botonPresupuesto' class="btn btn-lg btn-primary border border-primary mt-3"
+                    onclick="siguiente()">Siguiente</button>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
